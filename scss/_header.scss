@@ -107,74 +107,105 @@
 
 
     &__subcatBox {
-        gap:4px;
+        gap: 4px;
         display: flex;
         position: relative;
         padding: 5px;
-        flex:1;
+        flex: 1;
         height: 100%;
         border-radius: 10px 10px 0 0;
         transition: 0.4s;
+
         &:hover {
             background-color: $colorWhite;
             box-shadow: 0px -5px 8px -5px rgb(202, 202, 202);
         }
+
         &:hover .pageHeader__shadow {
             visibility: visible;
             z-index: 99;
         }
+
         &:hover .pageHeader__subcategoriesBar {
             visibility: visible;
         }
     }
-    &__subcatBox  a {
-        color:$colorDark;
+
+    &__subcatBox a {
+        color: $colorDark;
         font-weight: 300;
         font-size: 12px;
         display: flex;
         align-items: center;
         text-decoration: none;
-        gap:4px;
+        gap: 4px;
 
     }
-    &__subcategoriesBar{
+
+    &__subcategoriesBar {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         visibility: hidden;
         position: absolute;
         background-color: $colorWhite;
-        width:650px;
-        height: 350px;
-        bottom: -350px;
+        width: 650px;
+        left: 325px;
+        bottom: -340px;
         transform: translateX(-50%);
         border-radius: 0px 0px 15px 15px;
-        padding:20px;
+        padding: 20px;
         box-shadow: 0px 3px 8px -5px rgb(22, 22, 22);
-      //  transition: 0.4s;
+        //  transition: 0.4s;
 
-    }
+        .subcats {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 270px;
 
-    &__subcatBox a img {
-        width: 20px;
-        object-fit: contain;
-    }
-
-    &__barNav {
-        display: flex;
-        align-items: center;
-        width:100%;
-        gap:15px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid $colorGray;
-        a {
-            display: block;
-            font-weight: 700;
+            a:hover {
+                font-weight: 700;
+            }
         }
+
     }
-    &__subLinks {
-        padding: 10px 0;
+
+    &__subcatBox:nth-of-type(6),
+    &__subcatBox:nth-of-type(7),
+    &__subcatBox:nth-of-type(8),
+    &__subcatBox:nth-of-type(9),
+    &__subcatBox:nth-of-type(10),
+    &__subcatBox:nth-of-type(11)
+    {
+    & section {
+        left: -218px;
     }
+
+
+}
+
+&__subcatBox a img {
+    width: 20px;
+    object-fit: contain;
+}
+
+&__barNav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $colorGray;
+
+    a {
+        display: block;
+        font-weight: 700;
+    }
+}
+
+&__subLinks {
+    padding: 10px 0;
+}
 
 
 }
@@ -182,15 +213,16 @@
 @media screen and (max-width:1400px) {
     .pageHeader {
         &__innerBox {
-            width:95%;
-            gap:15px;
+            width: 95%;
+            gap: 15px;
         }
     }
 }
+
 @media screen and (max-width:1200px) {
     .pageHeader {
         &__innerBox {
-            & > a > img {
+            &>a>img {
                 display: none;
             }
         }
@@ -203,11 +235,11 @@
     position: fixed;
     opacity: 0;
     z-index: -1;
-    background-color: rgba(0,0,0,0.7);
-    width:100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
     height: 100vh;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     transition: 0.5s;
 }
 

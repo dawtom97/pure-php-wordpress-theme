@@ -13,7 +13,7 @@
 
     <div class="pageHeader__shadow" id="HeaderShadow"></div>
     <header class="pageHeader">
-       
+
         <div class="pageHeader__top">
             <div class="pageHeader__innerBox">
                 <img class="pageHeader__logo" src="" alt="Logo sklepu">
@@ -72,36 +72,38 @@
                                 <span><?php echo $cat->name; ?></span>
                                 <section class="pageHeader__subcategoriesBar">
                                     <div class="pageHeader__barNav">
-                                         <?php echo $cat->name; ?>
-                                         <a href="<?php echo get_term_link($cat->slug, 'product_cat') ?>">Wszystkie</a>
+                                        <?php echo $cat->name; ?>
+                                        <a href="<?php echo get_term_link($cat->slug, 'product_cat') ?>">Wszystkie</a>
                                     </div>
-                                    
-                                   
-                                    <?php
 
-                                    $args2 = array(
-                                        'taxonomy'     => $taxonomy,
-                                        'child_of'     => 0,
-                                        'parent'       => $category_id,
-                                        'orderby'      => $orderby,
-                                        'show_count'   => $show_count,
-                                        'pad_counts'   => $pad_counts,
-                                        'hierarchical' => $hierarchical,
-                                        'title_li'     => $title,
-                                        'hide_empty'   => $empty
-                                    );
-                                    $sub_cats = get_categories($args2);
+                                    <div class="subcats">
+
+                                        <?php
+
+                                        $args2 = array(
+                                            'taxonomy'     => $taxonomy,
+                                            'child_of'     => 0,
+                                            'parent'       => $category_id,
+                                            'orderby'      => $orderby,
+                                            'show_count'   => $show_count,
+                                            'pad_counts'   => $pad_counts,
+                                            'hierarchical' => $hierarchical,
+                                            'title_li'     => $title,
+                                            'hide_empty'   => $empty
+                                        );
+                                        $sub_cats = get_categories($args2);
 
 
-                                    if ($sub_cats) {
-                                        foreach ($sub_cats as $sub_category) {
-                                    ?>
-                                            <a class="pageHeader__subLinks" href="<?php echo get_term_link($sub_category->slug, 'product_cat') ?>"><?php echo $sub_category->name ?></a>
-                                       
-                                    <?php
+                                        if ($sub_cats) {
+                                            foreach ($sub_cats as $sub_category) {
+                                        ?>
+                                                <a class="pageHeader__subLinks" href="<?php echo get_term_link($sub_category->slug, 'product_cat') ?>"><?php echo $sub_category->name ?></a>
+                             
+                            <?php
+                                            }
                                         }
-                                    }
-                                    ?>
+                            ?>
+                                   </div>
                                 </section>
                             </a>
                         </div>
