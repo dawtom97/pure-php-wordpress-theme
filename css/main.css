@@ -11,6 +11,7 @@ html {
 
 body {
   font-family: 'Poppins',sans-serif !important;
+  overflow-x: hidden;
 }
 
 ul {
@@ -21,6 +22,9 @@ ul {
 .pageHeader {
   -webkit-box-shadow: 0px 3px 8px -5px #b3b3b3;
           box-shadow: 0px 3px 8px -5px #b3b3b3;
+  position: relative;
+  z-index: 100;
+  background-color: #ffffff;
 }
 
 .pageHeader__top {
@@ -33,26 +37,32 @@ ul {
           align-items: center;
 }
 
-.pageHeader__top ul {
+.pageHeader__mainMenu {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.pageHeader__mainMenu ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 15px;
 }
 
-.pageHeader__top ul > li {
+.pageHeader__mainMenu ul > li {
   font-size: 1.6rem;
   position: relative;
   color: #171717;
 }
 
-.pageHeader__top ul > li a {
+.pageHeader__mainMenu ul > li a {
   color: inherit;
   font-weight: 600;
   text-decoration: none;
 }
 
-.pageHeader__top ul > li::before {
+.pageHeader__mainMenu ul > li::before {
   content: "";
   position: absolute;
   width: 35px;
@@ -66,21 +76,27 @@ ul {
   background-color: #FFD200;
 }
 
-.pageHeader__bottom {
-  background-color: #f5f5f5;
-  height: 45px;
+.pageHeader__logo {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .pageHeader__search {
   position: relative;
   height: 30px;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
 }
 
 .pageHeader__search input[type='search'] {
   height: 100%;
+  width: 100%;
   border: 1px solid #cccccc;
   border-radius: 25px;
   overflow: hidden;
+  padding-left: 9px;
 }
 
 .pageHeader__search button {
@@ -101,8 +117,170 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
   width: 90%;
   max-width: 1444px;
   margin: 0 auto;
+  position: relative;
+  gap: 25px;
+}
+
+.pageHeader__userMenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.pageHeader__userMenu > a {
+  background-color: #FFD200;
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 39px;
+  color: #171717;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.pageHeader__bottom {
+  background-color: #f5f5f5;
+  height: 45px;
+}
+
+.pageHeader__subcatBox {
+  gap: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  padding: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.pageHeader__subcatBox:hover {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px -5px 8px -5px #cacaca;
+          box-shadow: 0px -5px 8px -5px #cacaca;
+}
+
+.pageHeader__subcatBox:hover .pageHeader__shadow {
+  visibility: visible;
+  z-index: 99;
+}
+
+.pageHeader__subcatBox:hover .pageHeader__subcategoriesBar {
+  visibility: visible;
+}
+
+.pageHeader__subcatBox a {
+  color: #171717;
+  font-weight: 300;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  gap: 4px;
+}
+
+.pageHeader__subcategoriesBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  visibility: hidden;
+  position: absolute;
+  background-color: #ffffff;
+  width: 650px;
+  height: 350px;
+  bottom: -350px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 0px 0px 15px 15px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 3px 8px -5px #161616;
+          box-shadow: 0px 3px 8px -5px #161616;
+}
+
+.pageHeader__subcatBox a img {
+  width: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.pageHeader__barNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  gap: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.pageHeader__barNav a {
+  display: block;
+  font-weight: 700;
+}
+
+.pageHeader__subLinks {
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .pageHeader__innerBox {
+    width: 95%;
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .pageHeader__innerBox > a > img {
+    display: none;
+  }
+}
+
+.pageHeader__shadow {
+  position: fixed;
+  opacity: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.showHeaderShadow {
+  z-index: 99;
+  opacity: 1;
 }
 /*# sourceMappingURL=main.css.map */

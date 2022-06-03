@@ -1,69 +1,217 @@
 .pageHeader {
     box-shadow: 0px 3px 8px -5px rgb(179, 179, 179);
+    position: relative;
+    z-index: 100;
+    background-color: $colorWhite;
+
     &__top {
         height: 70px;
         display: flex;
         align-items: center;
+    }
+
+    &__mainMenu {
+        flex: 1;
+
         ul {
             display: flex;
-            gap:15px;
+            gap: 15px;
         }
-        ul > li {
+
+        ul>li {
             font-size: 1.6rem;
             position: relative;
-            color:$colorDark;
+            color: $colorDark;
+
             a {
-                color:inherit;
+                color: inherit;
                 font-weight: 600;
                 text-decoration: none;
             }
         }
 
-        ul > li::before {
-           @include yellowCircle;
-        } 
+        ul>li::before {
+            @include yellowCircle;
+        }
     }
 
-    &__bottom {
-        background-color: $colorGray;
-        height: 45px;
-
- 
+    &__logo {
+        flex: 1;
     }
 
-    &__search  {
+    &__search {
         position: relative;
         height: 30px;
+        flex: 2;
 
         input[type='search'] {
-           height: 100%;
-           border:1px solid rgb(204, 204, 204);
-           border-radius: 25px;
-           overflow: hidden;
+            height: 100%;
+            width: 100%;
+            border: 1px solid rgb(204, 204, 204);
+            border-radius: 25px;
+            overflow: hidden;
+            padding-left: 9px;
         }
+
         button {
             height: 100%;
             position: absolute;
             border: none;
             background-color: $colorDark;
             color: $colorWhite;
-            width:30px;
-            right:0;
+            width: 30px;
+            right: 0;
             border-radius: 0 25px 25px 0;
-            
+
         }
     }
-
-
 
     &__innerBox {
         display: flex;
         align-items: center;
-        width:90%;
-        max-width:1444px;
-        margin:0 auto;
-        
+        height: 100%;
+        width: 90%;
+        max-width: 1444px;
+        margin: 0 auto;
+        position: relative;
+        gap: 25px;
+
+    }
+
+    &__userMenu {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+        flex: 1;
+
+        &>a {
+            background-color: $colorYellow;
+            display: block;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 39px;
+            color: $colorDark;
+            font-size: 26px;
+            font-weight: 700;
+        }
+    }
+
+    &__bottom {
+        background-color: $colorGray;
+        height: 45px;
+
+
     }
 
 
+    &__subcatBox {
+        gap:4px;
+        display: flex;
+        position: relative;
+        padding: 5px;
+        flex:1;
+        height: 100%;
+        border-radius: 10px 10px 0 0;
+        transition: 0.4s;
+        &:hover {
+            background-color: $colorWhite;
+            box-shadow: 0px -5px 8px -5px rgb(202, 202, 202);
+        }
+        &:hover .pageHeader__shadow {
+            visibility: visible;
+            z-index: 99;
+        }
+        &:hover .pageHeader__subcategoriesBar {
+            visibility: visible;
+        }
+    }
+    &__subcatBox  a {
+        color:$colorDark;
+        font-weight: 300;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap:4px;
+
+    }
+    &__subcategoriesBar{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        visibility: hidden;
+        position: absolute;
+        background-color: $colorWhite;
+        width:650px;
+        height: 350px;
+        bottom: -350px;
+        transform: translateX(-50%);
+        border-radius: 0px 0px 15px 15px;
+        padding:20px;
+        box-shadow: 0px 3px 8px -5px rgb(22, 22, 22);
+      //  transition: 0.4s;
+
+    }
+
+    &__subcatBox a img {
+        width: 20px;
+        object-fit: contain;
+    }
+
+    &__barNav {
+        display: flex;
+        align-items: center;
+        width:100%;
+        gap:15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid $colorGray;
+        a {
+            display: block;
+            font-weight: 700;
+        }
+    }
+    &__subLinks {
+        padding: 10px 0;
+    }
+
+
+}
+
+@media screen and (max-width:1400px) {
+    .pageHeader {
+        &__innerBox {
+            width:95%;
+            gap:15px;
+        }
+    }
+}
+@media screen and (max-width:1200px) {
+    .pageHeader {
+        &__innerBox {
+            & > a > img {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+.pageHeader__shadow {
+    position: fixed;
+    opacity: 0;
+    z-index: -1;
+    background-color: rgba(0,0,0,0.7);
+    width:100%;
+    height: 100vh;
+    top:0;
+    left:0;
+    transition: 0.5s;
+}
+
+.showHeaderShadow {
+    z-index: 99;
+    opacity: 1;
 }

@@ -23,8 +23,15 @@ function lemonPower_config()
     register_nav_menus(
         array(
             'lemonPower_mainMenu' => 'LemonPower Main Menu',
-            'lemonPower_footerMenu' => 'LemonPower Footer Menu'
+            'lemonPower_footerMenu' => 'LemonPower Footer Menu',
+            'lemonPower_userMenu' => 'LemonPower User Menu'
         )
     );
+    add_theme_support('custom-logo', array(
+        'height' => 55,
+        'width' => 130,
+        'flex_height' => true,
+        'flex-width' => true,
+    ));
 }
 add_action('after_setup_theme', 'lemonPower_config', 0);
