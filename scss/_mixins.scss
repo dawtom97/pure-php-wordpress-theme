@@ -1,0 +1,12 @@
+@mixin yellowCircle () {
+    content:"";
+    position: absolute;
+    width:35px;
+    top:50%;
+    transform: translateY(-50%);
+    left:-7px;
+    height: 35px;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: $colorYellow;
+}
