@@ -1,6 +1,4 @@
 @import '_variables.scss';
-
-h1 {
-    color:$prim;
-    font-size: 45px;
-}
+@import '_mixins.scss';
+@import '_resets.scss';
+@import '_header.scss';
