@@ -37,6 +37,10 @@ ul {
           align-items: center;
 }
 
+.pageHeader__mobileSearch {
+  display: none;
+}
+
 .pageHeader__mainMenu {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -272,17 +276,193 @@ ul {
   padding: 10px 0;
 }
 
+.pageHeader .showSubcat {
+  display: none;
+  font-size: 2rem;
+  color: #171717;
+}
+
+.pageHeader .mobileMainMenu {
+  display: none;
+}
+
+.pageHeader__mobileMenuTitle {
+  display: none;
+}
+
+.pageHeader #OpenMenuBtn {
+  display: none;
+  font-size: 26px;
+  color: #171717;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1400px) {
   .pageHeader__innerBox {
     width: 95%;
-    gap: 15px;
+    gap: 9px;
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .pageHeader__innerBox > a > img {
+  .pageHeader__subcatBox > a > img {
     display: none;
   }
+}
+
+@media screen and (max-width: 992px) {
+  .pageHeader {
+    z-index: initial;
+  }
+  .pageHeader__mobileSearch {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: #f5f5f5;
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 7px 12px;
+    gap: 25px;
+  }
+  .pageHeader__innerBox > form {
+    display: none;
+  }
+  .pageHeader #OpenMenuBtn {
+    display: block;
+  }
+  .pageHeader__mobileMenuTitle {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 16px;
+    width: 100%;
+    gap: 10px;
+    -webkit-box-align: self-end;
+        -ms-flex-align: self-end;
+            align-items: self-end;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .pageHeader__mobileMenuTitle i {
+    font-size: 19px;
+    line-height: 24px;
+  }
+  .pageHeader__mobileMenuTitle h3 {
+    font-size: 15px;
+  }
+  .pageHeader__top .pageHeader__mainMenu {
+    display: none;
+  }
+  .pageHeader__bottom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000 !important;
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100%;
+    width: 275px;
+    padding: 80px 12px 30px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .pageHeader__bottom > .mobileMainMenu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 15px;
+  }
+  .pageHeader__bottom > .mobileMainMenu ul {
+    padding-left: 13px;
+  }
+  .pageHeader__bottom .pageHeader__innerBox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .pageHeader__subcatBox {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 5px;
+    height: initial;
+  }
+  .pageHeader__subcatBox > a > img {
+    display: block;
+  }
+  .pageHeader__subcatBox:hover .pageHeader__shadow {
+    visibility: hidden !important;
+    z-index: -1;
+  }
+  .pageHeader__subcatBox > a {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    pointer-events: none;
+  }
+  .pageHeader__subcatBox > a > span {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .pageHeader__subcategoriesBar {
+    display: none;
+    border-radius: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    height: initial;
+  }
+  .pageHeader__subcategoriesBar .subcats {
+    height: initial;
+    min-height: initial;
+  }
+  .showSubcat {
+    display: block !important;
+    cursor: pointer;
+  }
+}
+
+#MenuShadow {
+  background-color: #171717;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.showOffcanvasMenuShadow {
+  opacity: 0.6 !important;
+  z-index: 99 !important;
 }
 
 .pageHeader__shadow {
@@ -301,5 +481,29 @@ ul {
 .showHeaderShadow {
   z-index: 99;
   opacity: 1;
+}
+
+.showSubmenuOnMobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  position: initial;
+  height: 100%;
+  width: 100%;
+  left: 0 !important;
+  top: 0;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.showOffcanvasMenu {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.setWhiteBox {
+  background-color: #ffffff;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=main.css.map */

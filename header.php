@@ -12,11 +12,12 @@
 <body <?php body_class(); ?>>
 
     <div class="pageHeader__shadow" id="HeaderShadow"></div>
+    <div id="MenuShadow"></div>
     <header class="pageHeader">
 
         <div class="pageHeader__top">
             <div class="pageHeader__innerBox">
-                <img class="pageHeader__logo" src="" alt="Logo sklepu">
+                <?php the_custom_logo(); ?>         
                 <nav class="pageHeader__mainMenu">
                     <?php wp_nav_menu(
                         array(
@@ -28,6 +29,7 @@
                     <input type="search" name="" id="" placeholder="Szukaj produktu">
                     <button aria-label="Wyszukaj produkty" type="submit"><i class="bi bi-search"></i></button>
                 </form>
+              
                 <div class="pageHeader__userMenu">
                     <a href="moje-konto" class=""><i class="bi bi-person"></i></a>
                     <a href="wishlist" class=""><i class="bi bi-suit-heart"></i></a>
@@ -35,7 +37,18 @@
                 </div>
             </div>
         </div>
-        <div class="pageHeader__bottom">
+        <div class="pageHeader__bottom" id="OffcanvasMenu">
+            <div class="pageHeader__mobileMenuTitle">
+                <i class="bi bi-x-lg" id="CloseMenuBtn"></i>
+                <h3>Wybierz kategorię</h3>
+            </div>
+            <nav class="pageHeader__mainMenu mobileMainMenu">
+                <?php wp_nav_menu(
+                    array(
+                        'theme_location' => 'lemonPower_mainMenu'
+                    )
+                ); ?>
+            </nav>
             <div class="pageHeader__innerBox">
 
                 <?php
@@ -69,7 +82,7 @@
                         <div class="pageHeader__subcatBox">
                             <a href="<?php echo get_term_link($cat->slug, 'product_cat') ?>">
                                 <img src="<?php echo $thumbImage ?>" />
-                                <span><?php echo $cat->name; ?></span>
+                                <span><?php echo $cat->name; ?> <i class="bi bi-arrow-left-short showSubcat"></i></span>
                                 <section class="pageHeader__subcategoriesBar">
                                     <div class="pageHeader__barNav">
                                         <?php echo $cat->name; ?>
@@ -98,12 +111,12 @@
                                             foreach ($sub_cats as $sub_category) {
                                         ?>
                                                 <a class="pageHeader__subLinks" href="<?php echo get_term_link($sub_category->slug, 'product_cat') ?>"><?php echo $sub_category->name ?></a>
-                             
-                            <?php
+
+                                        <?php
                                             }
                                         }
-                            ?>
-                                   </div>
+                                        ?>
+                                    </div>
                                 </section>
                             </a>
                         </div>
@@ -114,6 +127,14 @@
                 }
                 ?>
             </div>
+        </div>
+
+        <div class="pageHeader__mobileSearch">
+            <form class="pageHeader__search" action="">
+                <input type="search" name="" id="" placeholder="Szukaj produktu">
+                <button aria-label="Wyszukaj produkty" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+            <i class="bi bi-list" id="OpenMenuBtn"></i>
         </div>
 
     </header>
