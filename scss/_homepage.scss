@@ -1,0 +1,107 @@
+.homeSlider {
+    width: 90%;
+    max-width: 1444px;
+    // overflow-x: hidden ;
+    margin: 18px auto;
+
+    @media screen and (max-width: 1400px) {
+        width: 95%;
+    }
+
+    & .swiper-container {
+        overflow-x: hidden;
+    }
+    & .swiper-wrapper {
+
+        div:nth-child(2) {
+            div {
+                color: $colorWhite;
+
+                a {
+                    border-color: $colorWhite;
+                    color:$colorWhite
+                }
+            }
+          
+        }
+    }
+
+    &__buttons {
+        position: relative !important;
+        bottom: -5px !important;
+        display: flex;
+        justify-content: center;
+
+        @media screen and(max-width:768px) {
+            display: none;
+        }
+
+        & span {
+            flex: 1;
+            height: 0;
+            border-radius: 0px !important;
+
+            & p {
+                top: 4px;
+                font-size: 1.3rem;
+            }
+        }
+        & .swiper-pagination-bullet-active {
+            height: 2px;
+            background-color: $colorYellow;
+            & p {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &__slide {
+        height: 320px !important;
+        background-size: cover;
+      //  background-position: center right;
+        object-fit: cover;
+        border-radius: 25px;
+        padding: 35px;
+
+        @media screen and (max-width: 768px) {
+            min-height: 450px;
+        }
+
+    }
+
+    &__content {
+        width: 50%;
+        min-width: 200px;
+        margin-top: 30px;
+        color: $colorDark;
+
+        &>h2 {
+            font-size: 3.5rem;
+        }
+
+        &>p {
+            font-size: 1.6rem;
+        }
+
+        &>a {
+            display: block;
+            background-color: transparent;
+            border: 2px solid $colorDark;
+            width: 180px;
+            color: $colorDark;
+            padding: 5px 10px;
+            border-radius: 25px;
+            font-size: 1.6rem;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.4s;
+            font-weight: 500;
+            margin-top: 40px;
+
+            &:hover {
+                background-color: $colorDark;
+                color: $colorWhite;
+            }
+        }
+    }
+}

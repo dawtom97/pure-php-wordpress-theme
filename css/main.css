@@ -507,6 +507,122 @@ ul {
   margin-bottom: 20px;
 }
 
+.homeSlider {
+  width: 90%;
+  max-width: 1444px;
+  margin: 18px auto;
+}
+
+@media screen and (max-width: 1400px) {
+  .homeSlider {
+    width: 95%;
+  }
+}
+
+.homeSlider .swiper-container {
+  overflow-x: hidden;
+}
+
+.homeSlider .swiper-wrapper div:nth-child(2) div {
+  color: #ffffff;
+}
+
+.homeSlider .swiper-wrapper div:nth-child(2) div a {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.homeSlider__buttons {
+  position: relative !important;
+  bottom: -5px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .homeSlider__buttons {
+    display: none;
+  }
+}
+
+.homeSlider__buttons span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 0;
+  border-radius: 0px !important;
+}
+
+.homeSlider__buttons span p {
+  top: 4px;
+  font-size: 1.3rem;
+}
+
+.homeSlider__buttons .swiper-pagination-bullet-active {
+  height: 2px;
+  background-color: #FFD200;
+}
+
+.homeSlider__buttons .swiper-pagination-bullet-active p {
+  font-weight: 500;
+}
+
+.homeSlider__slide {
+  height: 320px !important;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 25px;
+  padding: 35px;
+}
+
+@media screen and (max-width: 768px) {
+  .homeSlider__slide {
+    min-height: 450px;
+  }
+}
+
+.homeSlider__content {
+  width: 50%;
+  min-width: 200px;
+  margin-top: 30px;
+  color: #171717;
+}
+
+.homeSlider__content > h2 {
+  font-size: 3.5rem;
+}
+
+.homeSlider__content > p {
+  font-size: 1.6rem;
+}
+
+.homeSlider__content > a {
+  display: block;
+  background-color: transparent;
+  border: 2px solid #171717;
+  width: 180px;
+  color: #171717;
+  padding: 5px 10px;
+  border-radius: 25px;
+  font-size: 1.6rem;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  font-weight: 500;
+  margin-top: 40px;
+}
+
+.homeSlider__content > a:hover {
+  background-color: #171717;
+  color: #ffffff;
+}
+
 .size-auto,
 .size-full,
 .size-large,
