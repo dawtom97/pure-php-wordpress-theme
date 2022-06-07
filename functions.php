@@ -33,5 +33,25 @@ function lemonPower_config()
         'flex_height' => true,
         'flex-width' => true,
     ));
+    add_theme_support( 'woocommerce', array (
+        'thumbnail_image_width' => 255,
+        'single_image_width' => 255,
+        'product_grid' => array(
+            'default_rows' => 10,
+            'min_rows' => 5,
+            'max_rows' => 10,
+            'default_columns' => 2,
+            'min_columns' => 2,
+            'max_columns' => 2
+        )
+    ) );
+    add_theme_support('wc-product-gallery-zoom');
+    add_theme_support('wc-product-gallery-lightbox');
+    add_theme_support('wc-product-gallery-slider');
 }
 add_action('after_setup_theme', 'lemonPower_config', 0);
+
+
+// WC Modifications
+require get_template_directory() . '/inc/wc-modifications.php';
+
