@@ -1,0 +1,132 @@
+.homeMain {
+    display: flex;
+    width: 90%;
+    max-width: 1444px;
+    // overflow-x: hidden ;
+    margin: 45px auto;
+
+    @media screen and (max-width:992px) {
+        flex-direction: column;
+    }
+
+    & .gray_circle {
+        display: block;
+        background: $colorGray;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        border-radius: 8px;
+        font-size: 1.8rem;
+        box-shadow: 0px 3px 15px 1px #c7c7c7;
+        margin-bottom: 5px;
+    }
+
+    & .prevPrice {
+        text-decoration: line-through;
+        font-size: 1.8rem;
+        color: $colorError;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+
+    & .newPrice {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    @media screen and (max-width: 1400px) {
+        width: 95%;
+    }
+
+    &__hotShot {
+        flex: 1;
+        padding: 20px;
+        border: 2.5px solid $colorGreen ;
+     //   border-image-source: linear-gradient(0deg, $colorDark 10%, $colorYellow 57%, $colorDark 100%);
+       // border-image-slice: 1;
+        border-radius: 15px;
+        transition: 0.6s;
+
+        
+    }
+
+    &__hotshotHeader {
+        color: $colorDark;
+
+        h2 {
+            font-size: 3rem;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+
+            &::before {
+                @include yellowCircle;
+            }
+
+            span {
+                font-size: 1.4rem;
+                background: $colorGreen;
+                color:$colorWhite;
+                padding: 7px 16px;
+                border-radius: 15px;
+                line-height: 24px;
+                text-align: center;
+
+            }
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__hotshotContent {
+        text-align: center;
+        position: relative;
+
+        &::before {
+            content:"";
+            position: absolute;
+            width:200px;
+            height: 200px;
+            background-color: $colorYellow;
+            overflow: hidden;
+            top:40%;
+            lefT:50%;
+            border-radius: 50%;
+            z-index: -1;
+            transform: translate(-50%,-50%) scale(0);
+            transition: 0.6s;
+        }
+        &:hover::before {
+            transform: translate(-50%,-50%) scale(1);
+        }
+
+        img {
+            width: 70%;
+        }
+
+        h3 {
+            color: $colorDark;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        p {
+            color: $colorDark;
+            font-size: 1.4rem;
+            opacity: 0.8;
+        }
+    }
+
+    &__hotshotClock {
+        p {
+            font-size: 2rem;
+        }
+    }
+
+    &__featured {
+        flex: 2.5
+    }
+}
