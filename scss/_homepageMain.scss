@@ -3,8 +3,10 @@
     width: 90%;
     max-width: 1444px;
     // overflow-x: hidden ;
-    margin: 45px auto;
+    margin: 45px auto 0;
     gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid $colorGray;
 
     @media screen and (max-width:992px) {
         flex-direction: column;

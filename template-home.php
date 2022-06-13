@@ -159,7 +159,7 @@ get_header();
   <div class="homeMain__featured">
     <?php
     date_default_timezone_set('Europe/Warsaw');
-    $hour = date("g");
+    $hour = date("H");
     if ($hour >= 6 && $hour < 18) {
       $greeting = "Dzień dobry";
     } else {
@@ -221,6 +221,24 @@ get_header();
 
 <section class="homeCategories">
 
+  <div class="homeCategories__top">
+    <div>
+      <h2>Kategorie odzieży BHP</h2>
+      <p>Zobacz wszystkie dostępne kategorie odzieży</p>
+    </div>
+
+    <div>
+      <nav class="">
+        <?php wp_nav_menu(
+          array(
+            'theme_location' => 'lemonPower_mainMenu'
+          )
+        ); ?>
+      </nav>
+    </div>
+  </div>
+
+
   <div class="swiper-container container sliderCategories">
     <?php $categories = get_terms(
       [
@@ -238,13 +256,15 @@ get_header();
         $image = wp_get_attachment_url($thumbnail_id);
         ?>
         <?php if ($image) : ?>
-          <div class="swiper-slide">
+          <a href="<?php echo $category->slug; ?>" class="swiper-slide homeCategories__categoryCard">
             <img class="" src="<?php echo $image; ?>" alt="">
             <h3><?php echo $category->name ?></h3>
-          </div>
+          </a>
         <?php endif; ?>
       <?php endforeach; ?>
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
 

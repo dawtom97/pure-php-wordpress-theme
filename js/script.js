@@ -76,11 +76,27 @@ const swiperHome = () => {
 const swiperCategories = () => {
   var swiper = new Swiper(".sliderCategories", {
     loop: true,
-    slidesPerView:5,
+    slidesPerView:2,
     spaceBetween:20,
     autoplay: {
       delay: 3000,
     },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      // when window width is >= 640px
+      640: {
+        width: 640,
+        slidesPerView: 3,
+      },
+      // when window width is >= 768px
+      768: {
+        width: 768,
+        slidesPerView: 3,
+      },
+    }
   });
   
 };
