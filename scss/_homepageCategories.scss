@@ -1,0 +1,107 @@
+.homeCategories {
+    width: 90%;
+    max-width: 1444px;
+    // overflow-x: hidden ;
+    margin: 30px auto 0;
+    gap: 30px;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 30px;
+    border-bottom: 2px solid $colorGray;
+
+    & h2 {
+        font-size: 3rem;
+        position: relative;
+
+        &::before {
+            @include yellowCircle;
+        }
+    }
+
+    & p {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    & .sliderCategories {
+        padding: 10px 0 !important;
+    }
+
+
+    &__categoryCard {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 240px !important;
+        box-shadow: $shadowPrimary;
+        color: $colorDark;
+        font-weight: 400;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            color: $colorDark;
+        }
+
+        &:hover::before {
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 8px;
+            height: 100%;
+        }
+
+        h3 {
+            margin: 20px auto;
+            width: 150px;
+        }
+
+        &::before {
+            content: '';
+            z-index: -1;
+            border-radius: 50%;
+            width: 75px;
+            height: 75px;
+            background-color: #ffd200;
+            position: absolute;
+            top: 21%;
+            left: 0;
+            right: 0;
+            transition: 300ms;
+            margin: 0 auto;
+        }
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul {
+            display: flex;
+            gap: 10px;
+
+            @media screen and (max-width:768px) {
+                flex-direction: column;
+            }
+
+            li {
+                font-size: 1.2rem;
+                background: #065c44;
+                color: #ffffff;
+                padding: 2px 16px;
+                border-radius: 15px;
+                line-height: 24px;
+                text-align: center;
+                a {
+                    color:$colorWhite;
+                }
+            }
+        }
+    }
+
+
+}

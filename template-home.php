@@ -156,9 +156,126 @@ get_header();
 
   </aside>
 
-  <div class="homeMain__featured"></div>
+  <div class="homeMain__featured">
+    <?php
+    date_default_timezone_set('Europe/Warsaw');
+    $hour = date("H");
+    if ($hour >= 6 && $hour < 18) {
+      $greeting = "Dzień dobry";
+    } else {
+      $greeting = "Dobry wieczór";
+    }
+    ?>
+
+    <h2><?php echo $greeting ?>, dziś polecamy</h2>
+
+    <?php
+    $featured_products = get_field('featured_products');
+    ?>
+    <div class="row homeMain__cardsWrapper">
+      <?php
+
+      if ($featured_products) {
+        foreach ($featured_products as $key => $row) {
+          $price = wc_get_product($row->ID)->get_price();
+          $url = get_permalink($row->ID);
+
+          // echo wc_get_product($row->ID);
+      ?>
+          <div class="col-lg-4 col-sm-6 homeMain__product">
+
+
+            <article class=" homeMain__productCard">
+
+              <a class="cartButton" href="<?php echo do_shortcode("[add_to_cart_url id=$row->ID] ") ?>">
+                <i class="bi bi-basket2"></i>
+              </a>
+
+              <a href="<?php echo get_permalink($row->ID) ?>">
+                <img src="<?php echo get_the_post_thumbnail_url($row->ID) ?>" alt="<?php echo $row->post_title; ?>" />
+                <div class="homeMain__productInfo">
+                  <h3><?php echo $row->post_title ?></h3>
+                  <p><?php echo $price ?> zł</p>
+                </div>
+              </a>
+
+
+            </article>
+
+
+          </div>
+          <!-- <?php echo do_shortcode("[product id=$row->ID columns='3' limit='3']"); ?> -->
+
+      <?php
+        }
+      }
+      ?>
+
+
+
+
+    </div>
+  </div>
 </main>
 
+
+<section class="homeCategories">
+
+  <div class="homeCategories__top">
+    <div>
+      <h2>Kategorie odzieży BHP</h2>
+      <p>Zobacz wszystkie dostępne kategorie odzieży</p>
+    </div>
+
+    <div>
+      <nav class="">
+        <?php wp_nav_menu(
+          array(
+            'theme_location' => 'lemonPower_mainMenu'
+          )
+        ); ?>
+      </nav>
+    </div>
+  </div>
+
+
+  <div class="swiper-container container sliderCategories">
+    <?php $categories = get_terms(
+      [
+        'taxonomy' => 'product_cat',
+        'hide_empty' => false,
+        'parent' => 0, // bez rodzica
+      ]
+    );
+
+    ?>
+    <div class="swiper-wrapper">
+      <?php foreach ($categories as $key => $category) : ?>
+        <?php
+        $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
+        $image = wp_get_attachment_url($thumbnail_id);
+        ?>
+        <?php if ($image) : ?>
+          <a href="<?php echo $category->slug; ?>" class="swiper-slide homeCategories__categoryCard">
+            <img class="" src="<?php echo $image; ?>" alt="">
+            <h3><?php echo $category->name ?></h3>
+          </a>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+
+
+<!-- <section>
+  <h2>Popularne produkty</h2>
+  <div>
+    <?php echo do_shortcode('[products limit="4" columns="4" orderby="popularity"]'); ?>
+  </div>
+</section> -->
 
 
 <?php get_footer(); ?>
