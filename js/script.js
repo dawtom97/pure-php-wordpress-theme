@@ -63,7 +63,30 @@ const swiperHome = () => {
 };
 
 
+
+
+
+
+
+
+
+
+
+
+const swiperCategories = () => {
+  var swiper = new Swiper(".sliderCategories", {
+    loop: true,
+    slidesPerView:5,
+    spaceBetween:20,
+    autoplay: {
+      delay: 3000,
+    },
+  });
+  
+};
+
+
 window.addEventListener('load', ()=>{
   swiperHome();
+  swiperCategories();
 })
-

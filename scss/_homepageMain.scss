@@ -4,6 +4,7 @@
     max-width: 1444px;
     // overflow-x: hidden ;
     margin: 45px auto;
+    gap: 30px;
 
     @media screen and (max-width:992px) {
         flex-direction: column;
@@ -43,12 +44,12 @@
         flex: 1;
         padding: 20px;
         border: 2.5px solid $colorGreen ;
-     //   border-image-source: linear-gradient(0deg, $colorDark 10%, $colorYellow 57%, $colorDark 100%);
-       // border-image-slice: 1;
+        //   border-image-source: linear-gradient(0deg, $colorDark 10%, $colorYellow 57%, $colorDark 100%);
+        // border-image-slice: 1;
         border-radius: 15px;
         transition: 0.6s;
 
-        
+
     }
 
     &__hotshotHeader {
@@ -67,7 +68,7 @@
             span {
                 font-size: 1.4rem;
                 background: $colorGreen;
-                color:$colorWhite;
+                color: $colorWhite;
                 padding: 7px 16px;
                 border-radius: 15px;
                 line-height: 24px;
@@ -86,21 +87,22 @@
         position: relative;
 
         &::before {
-            content:"";
+            content: "";
             position: absolute;
-            width:200px;
+            width: 200px;
             height: 200px;
             background-color: $colorYellow;
             overflow: hidden;
-            top:40%;
-            lefT:50%;
+            top: 40%;
+            lefT: 50%;
             border-radius: 50%;
             z-index: -1;
-            transform: translate(-50%,-50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
             transition: 0.6s;
         }
+
         &:hover::before {
-            transform: translate(-50%,-50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
         }
 
         img {
@@ -127,6 +129,121 @@
     }
 
     &__featured {
-        flex: 2.5
+        flex: 2.5;
+        padding: 25px;
+
+        & h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__productsWrapper {
+        display: flex;
+        gap: 5px;
+    }
+
+    &__productCard {
+        color: $colorDark;
+        border: 1px solid $colorWhite;
+        padding: 10px;
+        text-align: center;
+        border-radius: 15px;
+        position: relative;
+        transition: 0.5s;
+
+
+        & .cartButton {
+            position: absolute;
+            left: 10px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            border: none;
+            background: $colorGray;
+            transition: 0.4s;
+            line-height: 35px;
+            color: $colorWhite;
+            font-size: 1.6rem;
+
+        }
+
+        &:hover {
+            .cartButton {
+                background: $colorGreen;
+            }
+        }
+
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: $colorYellow;
+            overflow: hidden;
+            top: 40%;
+            left: 50%;
+            border-radius: 50%;
+            z-index: -1;
+            transform: translate(-50%, -50%) scale(0);
+            transition: 0.6s;
+        }
+
+        &:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+
+        &:hover {
+            border: 1px solid $colorGreen;
+        }
+
+        img {
+            width: 80%;
+            height: 200px;
+            object-fit: contain;
+
+            @media screen and (max-width:1200px) {
+                width: 100%;
+
+            }
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            width: 60%;
+            color: $colorDark;
+        }
+
+        p {
+            font-size: 2rem;
+            width: 40%;
+            color: $colorDark;
+            font-weight: 600;
+            text-align: right;
+            position: relative;
+
+            &::before {
+                @include yellowCircle;
+                left: initial;
+                right: -5px;
+            }
+
+            @media screen and (max-width:1200px) {
+                font-size: 1.6rem;
+            }
+
+        }
+    }
+
+    &__productInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 50px;
+        text-align: left;
+
     }
 }
