@@ -109,6 +109,25 @@
     height: auto;
 }
 
-.salePrice {
-    position: absolute !important;
+.regularPrice {
+    text-decoration: line-through;
+    color: $colorError;
+    margin-right: 6px;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 25px;
+}
+
+.discountInfo {
+    position: absolute;
+    right: 10px;
+    background: $colorGreen;
+    color: $colorWhite;
+    width: 50px;
+    display: block;
+    padding: 3px 0;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    top: 10px;
 }

@@ -19,12 +19,15 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
+
 //echo $product;
 
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
+
+$salePercentage = round((intval($product->sale_price) / intval($product->regular_price)) * 100 - 100);
 ?>
 
 <article class=" homeMain__productCard">
@@ -37,9 +40,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
   <img src="<?php echo get_the_post_thumbnail_url($product->id) ?>" alt="<?php echo $product->name; ?>" />
   <div class="homeMain__productInfo">
 	<h3><?php echo $product->name ?></h3>
-	<p><?php echo $product->price ?> zł</p>
 	<?php if($product->sale_price):?>
-	   <p class="salePrice"><?php echo $product->sale_price ?> zł</p>
+		<span class="discountInfo"><?php echo $salePercentage ?>%</span>
+	   <p><span class="regularPrice"><?php echo $product->regular_price ?> zł</span><?php echo $product->sale_price ?> zł</p>
+	<?php else:?>
+		<p><?php echo $product->regular_price ?> zł</p>
 	<?php endif; ?>
   </div>
 </a>

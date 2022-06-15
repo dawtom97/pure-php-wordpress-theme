@@ -15,12 +15,14 @@
 
         &::before {
             @include yellowCircle;
+            left:0;
         }
     }
 
     & p {
         font-size: 1.6rem;
         margin-bottom: 15px;
+        font-weight: 300;
     }
 
     & .sliderCategories {

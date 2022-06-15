@@ -269,6 +269,53 @@ get_header();
 </section>
 
 
+<section class="homeBlog">
+  <h2>Najnowsze wpisy</h2>
+  <p>Zobacz nasze poradniki i nowinki ze świata BHP</p>
+
+  <div class="swiper-container sliderPosts">
+    <div class="swiper-wrapper">
+      <?php
+
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 7
+      );
+      $blog_posts = new WP_Query($args);
+
+
+      if ($blog_posts->have_posts()) :
+        while ($blog_posts->have_posts()) : $blog_posts->the_post();
+          $content = get_the_excerpt();
+          $content = strip_tags($content);
+
+      ?>
+          <article class="swiper-slide homeBlog__postCard">
+            <a href="<?php the_permalink(); ?>">
+              <div>
+                <?php if (has_post_thumbnail()) :
+                  the_post_thumbnail('lemonPower-blog', array('class' => 'postCardImg'))
+                ?>
+                <?php endif ?>
+              </div>
+              <h3><?php the_title() ?></h3>
+              <p><?php echo substr($content, 0, 40); ?>...</p>
+            </a>
+          </article>
+        <?php
+        endwhile;
+      else :
+        ?>
+        <p>Nothing to display</p>
+      <?php endif ?>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+</section>
+
+
 
 <section class="homePopular">
   <h2>Popularne produkty</h2>
