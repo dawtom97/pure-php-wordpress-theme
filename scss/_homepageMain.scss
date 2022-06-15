@@ -8,9 +8,22 @@
     padding-bottom: 30px;
     border-bottom: 2px solid $colorGray;
 
+    &__cardsWrapperMobile {
+        display: none;
+        overflow-x:hidden;
+        position: relative;
+    }
+
     @media screen and (max-width:992px) {
         flex-direction: column;
+        &__cardsWrapperMobile {
+            display: block;
+        }
+        &__cardsWrapper {
+            display: none;
+        }
     }
+
 
     & .gray_circle {
         display: block;
@@ -249,4 +262,6 @@
         text-align: left;
 
     }
+
+
 }

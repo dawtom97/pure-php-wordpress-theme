@@ -27,10 +27,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 
-$salePercentage = round((intval($product->sale_price) / intval($product->regular_price)) * 100 - 100);
+$salePercentage = @round((intval($product->sale_price) / intval($product->regular_price)) * 100 - 100);
 ?>
 
-<article class=" homeMain__productCard">
+<article class=" homeMain__productCard swiper-slide">
 
 <a class="cartButton" href="<?php echo do_shortcode("[add_to_cart_url id=$product->id] ") ?>">
   <i class="bi bi-basket2"></i>
@@ -42,7 +42,7 @@ $salePercentage = round((intval($product->sale_price) / intval($product->regular
 	<h3><?php echo $product->name ?></h3>
 	<?php if($product->sale_price):?>
 		<span class="discountInfo"><?php echo $salePercentage ?>%</span>
-	   <p><span class="regularPrice"><?php echo $product->regular_price ?> zł</span><?php echo $product->sale_price ?> zł</p>
+	   <p><span class="regularPrice"><?php echo $product->regular_price ?></span><?php echo $product->sale_price ?> zł</p>
 	<?php else:?>
 		<p><?php echo $product->regular_price ?> zł</p>
 	<?php endif; ?>

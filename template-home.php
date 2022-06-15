@@ -172,6 +172,45 @@ get_header();
     <?php
     $featured_products = get_field('featured_products');
     ?>
+    <div class="homeMain__cardsWrapperMobile">
+      <div class="swiper-container sliderPopular">
+        <div class="swiper-wrapper">
+          <?php
+          if ($featured_products) {
+            foreach ($featured_products as $key => $row) {
+              $price = wc_get_product($row->ID)->get_price();
+              $url = get_permalink($row->ID);
+
+          ?>
+
+              <article class=" homeMain__productCard swiper-slide">
+
+                <a class="cartButton" href="<?php echo do_shortcode("[add_to_cart_url id=$row->ID] ") ?>">
+                  <i class="bi bi-basket2"></i>
+                </a>
+
+                <a href="<?php echo get_permalink($row->ID) ?>">
+                  <img src="<?php echo get_the_post_thumbnail_url($row->ID) ?>" alt="<?php echo $row->post_title; ?>" />
+                  <div class="homeMain__productInfo">
+                    <h3><?php echo $row->post_title ?></h3>
+                    <p><?php echo $price ?> zł</p>
+                  </div>
+                </a>
+
+
+              </article>
+
+
+          <?php
+            }
+          }
+          ?>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
     <div class="row homeMain__cardsWrapper">
       <?php
 
@@ -300,6 +339,7 @@ get_header();
               </div>
               <h3><?php the_title() ?></h3>
               <p><?php echo substr($content, 0, 40); ?>...</p>
+              <p class="postDate">Dodano: <?php echo get_the_date() ?></p>
             </a>
           </article>
         <?php
@@ -320,10 +360,37 @@ get_header();
 <section class="homePopular">
   <h2>Popularne produkty</h2>
   <p>Zobacz wszystkie dostępne kategorie odzieży</p>
-  <div class="">
+  <!-- <div class="">
     <?php echo do_shortcode('[products limit="5" columns="5" orderby="popularity"]'); ?>
+  </div> -->
+  <div class="swiper-container sliderPopular">
+    <div class="swiper-wrapper">
+      <?php
+
+      $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => 7,
+        'orderby' => 'date'
+      );
+      $item_posts = new WP_Query($args);
+
+
+      if ($item_posts->have_posts()) :
+        while ($item_posts->have_posts()) : $item_posts->the_post();
+          the_post();
+          do_action('woocommerce_shop_loop');
+          wc_get_template_part('content', 'product');
+      ?>
+
+        <?php endwhile; ?>
+      <?php endif ?>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
+
+
 
 
 <?php get_footer(); ?>

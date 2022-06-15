@@ -697,12 +697,24 @@ a {
   border-bottom: 2px solid #f5f5f5;
 }
 
+.homeMain__cardsWrapperMobile {
+  display: none;
+  overflow-x: hidden;
+  position: relative;
+}
+
 @media screen and (max-width: 992px) {
   .homeMain {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .homeMain__cardsWrapperMobile {
+    display: block;
+  }
+  .homeMain__cardsWrapper {
+    display: none;
   }
 }
 
@@ -1254,18 +1266,19 @@ a {
   font-size: 1.7rem;
   font-weight: 500;
   color: #171717;
+  min-height: 41px;
 }
 
 .homeBlog__postCard p {
-  margin-top: auto;
+  margin: 0;
   font-size: 1.4rem;
   font-weight: 300;
   color: #171717;
 }
 
 .homeBlog__postCard .postDate {
-  position: absolute;
-  bottom: -30px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .size-auto,
