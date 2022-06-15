@@ -1,8 +1,11 @@
 .pageHeader {
     box-shadow: 0px 3px 8px -5px rgb(179, 179, 179);
     position: relative;
-    z-index: 100;
     background-color: $colorWhite;
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 999;
 
     &__top {
         height: 70px;
@@ -255,7 +258,6 @@
 @media screen and (max-width:992px) {
 
     .pageHeader {
-        z-index: initial;
 
         &__mobileSearch {
             display: flex;

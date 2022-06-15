@@ -48,6 +48,9 @@ function lemonPower_config()
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
+
+    add_theme_support('post-thumbnails');
+    add_image_size('lemonPower-blog',280,300, array('center','center'));
 }
 add_action('after_setup_theme', 'lemonPower_config', 0);
 

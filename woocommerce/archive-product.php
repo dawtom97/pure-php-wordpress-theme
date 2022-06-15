@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 
 get_header('shop');
 ?>
-<div class="container">
+<div class="container topSpace">
     <div class="row">
         <div class="col-lg-3 col-md-4 order-2 order-md-1">
 

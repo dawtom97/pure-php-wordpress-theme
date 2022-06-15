@@ -37,6 +37,7 @@ a {
     background-size: contain !important;
     box-shadow: 0px 0px 1px 4px white inset;
     top:59% !important;
+    background: white;
 
 
 }
@@ -52,4 +53,12 @@ a {
 
   .swiper-button-next::after, .swiper-button-prev::after {
     content: "" !important;
+  }
+
+
+  .topSpace {
+    margin-top:132px !important;
+    @media screen and (max-width: 992px) {
+        margin-top:142px;
+    }
   }

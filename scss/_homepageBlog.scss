@@ -1,0 +1,58 @@
+.homeBlog {
+    width: 90%;
+    max-width: 1444px;
+    // overflow-x: hidden ;
+    margin: 30px auto 0;
+    gap: 30px;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 30px;
+    border-bottom: 2px solid $colorGray;
+
+    & h2 {
+        font-size: 3rem;
+        position: relative;
+
+        &::before {
+            @include yellowCircle;
+            left:0;
+        }
+    }
+
+    & p {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        font-weight: 300;
+    }
+
+    &__postCard {
+        .postCardImg {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+            box-shadow: $shadowPrimary;
+            border-radius: 12px;
+            margin-bottom: 13px;
+        }
+
+        h3 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: $colorDark;
+            min-height: 41px;
+        }
+
+        p {
+            margin:0;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: $colorDark;
+        }
+        .postDate {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+    }
+
+}

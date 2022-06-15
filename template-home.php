@@ -5,7 +5,7 @@ Template name: Homepage
 get_header();
 ?>
 
-<div class="row homeSlider">
+<div class="row homeSlider topSpace">
   <div class="swiper-container slider-home">
     <div class="swiper-wrapper">
       <?php if (have_rows('slider_home')) : ?>
@@ -44,12 +44,12 @@ get_header();
             $r = $row['product'][0]->ID;
             $product = wc_get_product($r);
 
-            $salePercentage = round(($product->price / $product->regular_price) * 100);
+            $salePercentage = round(($product->price / $product->regular_price) * 100 - 100);
 
         ?>
             <a href="<?php echo get_permalink($row['product'][0]->ID) ?>">
               <header class="homeMain__hotshotHeader">
-                <h2>Good Deal <span>- <?php echo $salePercentage; ?>%</span></h2>
+                <h2>Good Deal <span> <?php echo $salePercentage; ?>%</span></h2>
                 <p>Lepszej ceny nie znajdziesz!</p>
               </header>
               <div class="homeMain__hotshotContent">
@@ -172,6 +172,45 @@ get_header();
     <?php
     $featured_products = get_field('featured_products');
     ?>
+    <div class="homeMain__cardsWrapperMobile">
+      <div class="swiper-container sliderPopular">
+        <div class="swiper-wrapper">
+          <?php
+          if ($featured_products) {
+            foreach ($featured_products as $key => $row) {
+              $price = wc_get_product($row->ID)->get_price();
+              $url = get_permalink($row->ID);
+
+          ?>
+
+              <article class=" homeMain__productCard swiper-slide">
+
+                <a class="cartButton" href="<?php echo do_shortcode("[add_to_cart_url id=$row->ID] ") ?>">
+                  <i class="bi bi-basket2"></i>
+                </a>
+
+                <a href="<?php echo get_permalink($row->ID) ?>">
+                  <img src="<?php echo get_the_post_thumbnail_url($row->ID) ?>" alt="<?php echo $row->post_title; ?>" />
+                  <div class="homeMain__productInfo">
+                    <h3><?php echo $row->post_title ?></h3>
+                    <p><?php echo $price ?> zł</p>
+                  </div>
+                </a>
+
+
+              </article>
+
+
+          <?php
+            }
+          }
+          ?>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
     <div class="row homeMain__cardsWrapper">
       <?php
 
@@ -269,13 +308,89 @@ get_header();
 </section>
 
 
+<section class="homeBlog">
+  <h2>Najnowsze wpisy</h2>
+  <p>Zobacz nasze poradniki i nowinki ze świata BHP</p>
 
-<!-- <section>
-  <h2>Popularne produkty</h2>
-  <div>
-    <?php echo do_shortcode('[products limit="4" columns="4" orderby="popularity"]'); ?>
+  <div class="swiper-container sliderPosts">
+    <div class="swiper-wrapper">
+      <?php
+
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 7
+      );
+      $blog_posts = new WP_Query($args);
+
+
+      if ($blog_posts->have_posts()) :
+        while ($blog_posts->have_posts()) : $blog_posts->the_post();
+          $content = get_the_excerpt();
+          $content = strip_tags($content);
+
+      ?>
+          <article class="swiper-slide homeBlog__postCard">
+            <a href="<?php the_permalink(); ?>">
+              <div>
+                <?php if (has_post_thumbnail()) :
+                  the_post_thumbnail('lemonPower-blog', array('class' => 'postCardImg'))
+                ?>
+                <?php endif ?>
+              </div>
+              <h3><?php the_title() ?></h3>
+              <p><?php echo substr($content, 0, 40); ?>...</p>
+              <p class="postDate">Dodano: <?php echo get_the_date() ?></p>
+            </a>
+          </article>
+        <?php
+        endwhile;
+      else :
+        ?>
+        <p>Nothing to display</p>
+      <?php endif ?>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
-</section> -->
+
+</section>
+
+
+
+<section class="homePopular">
+  <h2>Popularne produkty</h2>
+  <p>Zobacz wszystkie dostępne kategorie odzieży</p>
+  <!-- <div class="">
+    <?php echo do_shortcode('[products limit="5" columns="5" orderby="popularity"]'); ?>
+  </div> -->
+  <div class="swiper-container sliderPopular">
+    <div class="swiper-wrapper">
+      <?php
+
+      $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => 7,
+        'orderby' => 'date'
+      );
+      $item_posts = new WP_Query($args);
+
+
+      if ($item_posts->have_posts()) :
+        while ($item_posts->have_posts()) : $item_posts->the_post();
+          the_post();
+          do_action('woocommerce_shop_loop');
+          wc_get_template_part('content', 'product');
+      ?>
+
+        <?php endwhile; ?>
+      <?php endif ?>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+
 
 
 <?php get_footer(); ?>
