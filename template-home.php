@@ -5,7 +5,7 @@ Template name: Homepage
 get_header();
 ?>
 
-<div class="row homeSlider">
+<div class="row homeSlider topSpace">
   <div class="swiper-container slider-home">
     <div class="swiper-wrapper">
       <?php if (have_rows('slider_home')) : ?>
@@ -44,12 +44,12 @@ get_header();
             $r = $row['product'][0]->ID;
             $product = wc_get_product($r);
 
-            $salePercentage = round(($product->price / $product->regular_price) * 100);
+            $salePercentage = round(($product->price / $product->regular_price) * 100 - 100);
 
         ?>
             <a href="<?php echo get_permalink($row['product'][0]->ID) ?>">
               <header class="homeMain__hotshotHeader">
-                <h2>Good Deal <span>- <?php echo $salePercentage; ?>%</span></h2>
+                <h2>Good Deal <span> <?php echo $salePercentage; ?>%</span></h2>
                 <p>Lepszej ceny nie znajdziesz!</p>
               </header>
               <div class="homeMain__hotshotContent">
@@ -270,12 +270,13 @@ get_header();
 
 
 
-<!-- <section>
+<section class="homePopular">
   <h2>Popularne produkty</h2>
-  <div>
-    <?php echo do_shortcode('[products limit="4" columns="4" orderby="popularity"]'); ?>
+  <p>Zobacz wszystkie dostępne kategorie odzieży</p>
+  <div class="">
+    <?php echo do_shortcode('[products limit="5" columns="5" orderby="popularity"]'); ?>
   </div>
-</section> -->
+</section>
 
 
 <?php get_footer(); ?>

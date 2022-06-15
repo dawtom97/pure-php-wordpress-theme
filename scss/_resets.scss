@@ -53,3 +53,11 @@ a {
   .swiper-button-next::after, .swiper-button-prev::after {
     content: "" !important;
   }
+
+
+  .topSpace {
+    margin-top:132px !important;
+    @media screen and (max-width: 992px) {
+        margin-top:142px;
+    }
+  }

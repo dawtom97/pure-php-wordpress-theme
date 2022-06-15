@@ -3,11 +3,9 @@
     max-width: 1444px;
     // overflow-x: hidden ;
     margin: 18px auto;
-
     @media screen and (max-width: 1400px) {
         width: 95%;
     }
-
     & .swiper-container {
         overflow-x: hidden;
         padding-left: 0 !important;

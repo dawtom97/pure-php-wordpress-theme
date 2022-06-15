@@ -1,0 +1,50 @@
+.homePopular {
+    width: 90%;
+    max-width: 1444px;
+    // overflow-x: hidden ;
+    margin: 30px auto 0;
+    gap: 30px;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 30px;
+    border-bottom: 2px solid $colorGray;
+
+    & > h2 {
+        font-size: 3rem;
+        position: relative;
+        &::before {
+            @include yellowCircle;
+            left:0;
+        }
+    }
+    & > p {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+
+   & ul {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border-top: none !important;
+
+    @media screen and (max-width:576px) {
+        justify-content: center;
+        align-items: center;
+    }
+
+    & > article {
+        flex:auto;
+        max-width: 272px;
+        margin-right: 15px;
+        @media screen and (max-width:576px) {
+            max-width: 100%;
+            margin-right: initial;
+            width:100%;
+            flex:initial;
+        }
+    
+    }
+   }
+}

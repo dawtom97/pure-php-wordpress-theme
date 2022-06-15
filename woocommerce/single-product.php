@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 
 get_header('shop'); ?>
 
-<div class="container">
+<div class="container topSpace">
     <div class="row">
 
         <?php
@@ -58,7 +58,7 @@ get_header('shop'); ?>
          *
          * @hooked woocommerce_get_sidebar - 10
          */
-       // do_action('woocommerce_sidebar');
+        do_action('woocommerce_sidebar');
         ?>
 
         <?php
