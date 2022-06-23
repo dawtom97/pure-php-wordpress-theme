@@ -1,0 +1,20 @@
+.pageFooter {
+    background-color: $colorGray;
+    &__innerWrapper {
+        width: 90%;
+        max-width: 1444px;
+        margin: 0px auto;
+    }
+
+    &__contactBox {
+        & > span {
+            display: block;
+        }
+
+    }
+    &__contactTitle {
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: block;
+    }
+}

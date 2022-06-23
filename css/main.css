@@ -554,6 +554,26 @@ a {
   margin-bottom: 20px;
 }
 
+.pageFooter {
+  background-color: #f5f5f5;
+}
+
+.pageFooter__innerWrapper {
+  width: 90%;
+  max-width: 1444px;
+  margin: 0px auto;
+}
+
+.pageFooter__contactBox > span {
+  display: block;
+}
+
+.pageFooter__contactTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: block;
+}
+
 .homeSlider {
   width: 90%;
   max-width: 1444px;
