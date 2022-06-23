@@ -19,7 +19,6 @@ body {
 }
 
 ul {
-  list-style: none;
   margin: 0;
 }
 
@@ -562,16 +561,76 @@ a {
   width: 90%;
   max-width: 1444px;
   margin: 0px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .pageFooter__contactBox > span {
   display: block;
+  font-size: 1.4rem;
+  margin: 7px 0;
 }
 
-.pageFooter__contactTitle {
+.pageFooter__contactBox i {
+  font-size: 1.5rem;
+  color: #171717;
+}
+
+.pageFooter__subtitle {
   font-size: 1.6rem;
   font-weight: 700;
   display: block;
+}
+
+.pageFooter ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pageFooter ul li {
+  list-style: none;
+  margin: 7px 0;
+}
+
+.pageFooter ul li > a {
+  color: #171717;
+  font-size: 1.4rem;
+}
+
+.pageFooter ul li > a:hover {
+  text-decoration: underline;
+}
+
+.pageFooter__goodDeal {
+  color: #e62f2f;
+}
+
+.pageFooter__goodDeal:hover {
+  text-decoration: underline;
+  color: #e62f2f;
+}
+
+.pageFooter__regulationsMenu li {
+  list-style: none;
+}
+
+.pageFooter__regulationsMenu li a {
+  font-size: 1.4rem;
+}
+
+.pageFooter__biggerIcon {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.pageFooter__biggerIcon i {
+  font-size: 2.4rem;
+  margin-right: 12px;
 }
 
 .homeSlider {

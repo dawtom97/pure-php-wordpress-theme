@@ -24,7 +24,10 @@ function lemonPower_config()
         array(
             'lemonPower_mainMenu' => 'LemonPower Main Menu',
             'lemonPower_footerMenu' => 'LemonPower Footer Menu',
-            'lemonPower_userMenu' => 'LemonPower User Menu'
+            'lemonPower_userMenu' => 'LemonPower User Menu',
+            'lemonPower_regulationsMenu' => 'LemonPower Regulations Menu',
+            'lemonPower_footerUserMenu' => 'LemonPower Footer User Menu',
+            'lemonPower_footerSalesMenu' => 'LemonPower Footer Sales Menu'
         )
     );
     add_theme_support('custom-logo', array(
