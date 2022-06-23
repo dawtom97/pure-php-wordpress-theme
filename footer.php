@@ -70,6 +70,7 @@
         </div>
 
     </div>
+    <div class="pageFooter__copyright">Powered by LemonBay © ubraniadopracy.pl 2022</div>
 
 </footer>
 
