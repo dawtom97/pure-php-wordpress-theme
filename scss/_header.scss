@@ -61,7 +61,7 @@
             padding-left: 9px;
         }
 
-        input[type='submit'] {
+        button[type='submit'] {
             height: 100%;
             position: absolute;
             border: none;
@@ -70,6 +70,10 @@
             width: 30px;
             right: 0;
             border-radius: 0 25px 25px 0;
+
+            & i {
+                font-size: 1.3rem;
+            }
 
         }
 
@@ -288,7 +292,7 @@
                 padding-left: 9px;
             }
     
-            input[type='submit'] {
+            button[type='submit'] {
                 position: absolute;
                 height: 30px;
                 border: none;
@@ -297,6 +301,9 @@
                 width: 30px;
                 right: 0;
                 border-radius: 0 25px 25px 0;
+                & i {
+                    font-size: 1.3rem;
+                }
     
             }
            

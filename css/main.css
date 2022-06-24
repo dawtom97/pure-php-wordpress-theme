@@ -154,7 +154,7 @@ a {
   padding-left: 9px;
 }
 
-.pageHeader__search input[type='submit'] {
+.pageHeader__search button[type='submit'] {
   height: 100%;
   position: absolute;
   border: none;
@@ -163,6 +163,10 @@ a {
   width: 30px;
   right: 0;
   border-radius: 0 25px 25px 0;
+}
+
+.pageHeader__search button[type='submit'] i {
+  font-size: 1.3rem;
 }
 
 .pageHeader__innerBox {
@@ -393,7 +397,7 @@ a {
     outline: none;
     padding-left: 9px;
   }
-  .pageHeader__mobileSearch input[type='submit'] {
+  .pageHeader__mobileSearch button[type='submit'] {
     position: absolute;
     height: 30px;
     border: none;
@@ -402,6 +406,9 @@ a {
     width: 30px;
     right: 0;
     border-radius: 0 25px 25px 0;
+  }
+  .pageHeader__mobileSearch button[type='submit'] i {
+    font-size: 1.3rem;
   }
   .pageHeader__innerBox > form {
     display: none;

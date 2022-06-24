@@ -62,11 +62,11 @@ add_action('after_setup_theme', 'lemonPower_config', 0);
 require get_template_directory() . '/inc/wc-modifications.php';
 
 
-// if( function_exists('acf_add_options_page') ) {
-//     acf_add_options_page([
-//         'page_title' => __('Nasi producenci'),
-//         'menu_title' => __('Producenci'),
-//         'menu_slug' => 'producents',
-//         'icon_url' => 'dashicons-admin-site',
-//     ]);
-// }
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page([
+        'page_title' => __('Opcje sklepu'),
+        'menu_title' => __('Opcje sklepu'),
+        'menu_slug' => 'producents',
+        'icon_url' => 'dashicons-admin-site',
+    ]);
+}
