@@ -17,7 +17,7 @@
 
         <div class="pageHeader__top">
             <div class="pageHeader__innerBox">
-                <?php the_custom_logo(); ?>         
+                <?php the_custom_logo(); ?>
                 <nav class="pageHeader__mainMenu">
                     <?php wp_nav_menu(
                         array(
@@ -25,11 +25,14 @@
                         )
                     ); ?>
                 </nav>
-                <form class="pageHeader__search" action="">
+                <div class="pageHeader__search">
+                    <?php get_search_form() ?>
+                </div>
+                <!-- <form class="pageHeader__search" action="">
                     <input type="search" name="" id="" placeholder="Szukaj produktu">
                     <button aria-label="Wyszukaj produkty" type="submit"><i class="bi bi-search"></i></button>
-                </form>
-              
+                </form> -->
+
                 <div class="pageHeader__userMenu">
                     <a href="moje-konto" class=""><i class="bi bi-person"></i></a>
                     <a href="wishlist" class=""><i class="bi bi-suit-heart"></i></a>
@@ -130,10 +133,9 @@
         </div>
 
         <div class="pageHeader__mobileSearch">
-            <form class="pageHeader__search" action="">
-                <input type="search" name="" id="" placeholder="Szukaj produktu">
-                <button aria-label="Wyszukaj produkty" type="submit"><i class="bi bi-search"></i></button>
-            </form>
+
+            <?php get_search_form() ?>
+
             <i class="bi bi-list" id="OpenMenuBtn"></i>
         </div>
 

@@ -51,16 +51,17 @@
         height: 30px;
         flex: 2;
 
-        input[type='search'] {
-            height: 100%;
+        input {
+            height: 30px;
             width: 100%;
             border: 1px solid rgb(204, 204, 204);
             border-radius: 25px;
             overflow: hidden;
+            outline: none;
             padding-left: 9px;
         }
 
-        button {
+        input[type='submit'] {
             height: 100%;
             position: absolute;
             border: none;
@@ -71,6 +72,7 @@
             border-radius: 0 25px 25px 0;
 
         }
+
     }
 
     &__innerBox {
@@ -258,6 +260,9 @@
 @media screen and (max-width:992px) {
 
     .pageHeader {
+        &__search {
+            display: none;
+        }
 
         &__mobileSearch {
             display: flex;
@@ -267,6 +272,33 @@
             justify-content: space-between;
             padding: 7px 12px;
             gap:25px;
+
+            & form {
+                position: relative;
+                width: 100%;
+            }
+
+            input {
+                height: 30px;
+                width: 100%;
+                border: 1px solid rgb(204, 204, 204);
+                border-radius: 25px;
+                overflow: hidden;
+                outline: none;
+                padding-left: 9px;
+            }
+    
+            input[type='submit'] {
+                position: absolute;
+                height: 30px;
+                border: none;
+                background-color: $colorDark;
+                color: $colorWhite;
+                width: 30px;
+                right: 0;
+                border-radius: 0 25px 25px 0;
+    
+            }
            
 
             
