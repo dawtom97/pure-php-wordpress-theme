@@ -1,0 +1,30 @@
+.homeProducents {
+    width: 90%;
+    max-width: 1444px;
+    // overflow-x: hidden ;
+    margin: 30px auto 0;
+    gap: 30px;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 30px;
+
+    & > h2 {
+        font-size: 3rem;
+        position: relative;
+        &::before {
+            @include yellowCircle;
+            left:0;
+        }
+    }
+    & > p {
+        font-size: 1.6rem;
+        font-weight: 300;
+        margin-bottom: 15px;
+    }
+
+    & img {
+        width:100%;
+        height: 300px;
+        object-fit: contain;
+    }
+}

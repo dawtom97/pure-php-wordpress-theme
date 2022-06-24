@@ -390,6 +390,32 @@ get_header();
   </div>
 </section>
 
+<section class="homeProducents">
+  <h2>Strefa marek</h2>
+  <p>Nasze produkty pochodzą wyłącznie od sprawdzonych dostawców</p>
+  <div class="swiper-container sliderProducents">
+    <div class="swiper-wrapper">
+      <?php
+      $producents = get_field('producent');
+
+      if ($producents) {
+        foreach ($producents as $key => $row) {
+      ?>
+          <div class="swiper-slide">
+            <a href="<?php echo $row['link'] ?>">
+              <img src="<?php echo $row['logo'] ?>" />
+
+            </a>
+          </div>
+
+      <?php
+        }
+      }
+      ?>
+    </div>
+  </div>
+</section>
+
 
 
 
