@@ -94,6 +94,10 @@ function wooc_extra_register_fields()
     <label for="reg_billing_address_2"><?php _e('Nr domu/lokalu', 'woocommerce'); ?></label>
     <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_address_2" id="reg_billing_address_2" value="<?php esc_attr_e($_POST['billing_address_2']); ?>" />
   </p>
+  <p class="form-row form-row-wide">
+    <label for="reg_nim_number"><?php _e('Numer NIP', 'woocommerce'); ?></label>
+    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="nip_number" id="reg_nip_number" value="<?php esc_attr_e($_POST['billing_address_2']); ?>" />
+  </p>
   <div class="clear"></div>
   <?php
 }
@@ -107,6 +111,9 @@ function wooc_validate_extra_register_fields($username, $email, $validation_erro
   }
   if (isset($_POST['billing_last_name']) && empty($_POST['billing_last_name'])) {
     $validation_errors->add('billing_last_name_error', __('<strong>Error</strong>: Last name is required!.', 'woocommerce'));
+  }
+  if (isset($_POST['nip_number']) && empty($_POST['nip_number'])) {
+    $validation_errors->add('billing_last_name_error', __('<strong>Error</strong>: Numer NIP jest wymagany!.', 'woocommerce'));
   }
   return $validation_errors;
 }
