@@ -9,7 +9,11 @@
  * @subpackage BHP
  * @since LemonPower BHP 1.0
  */
-get_header();
+if (is_page('moje-konto') && !is_user_logged_in()) :
+    get_header('login');
+else :
+    get_header();
+endif;
 ?>
 <div class="site_wrapper topSpace" id="Page">
     <main>
