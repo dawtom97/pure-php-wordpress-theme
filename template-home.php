@@ -390,6 +390,53 @@ get_header();
   </div>
 </section>
 
+<section class="homeProducents">
+  <h2>Strefa marek</h2>
+  <p>Nasze produkty pochodzą wyłącznie od sprawdzonych dostawców</p>
+  <div class="swiper-container sliderProducents">
+    <div class="swiper-wrapper">
+      <?php
+      $producents = get_field('producent');
+
+      if ($producents) {
+        foreach ($producents as $key => $row) {
+      ?>
+          <div class="swiper-slide">
+            <a href="<?php echo $row['link'] ?>">
+              <img src="<?php echo $row['logo'] ?>" />
+
+            </a>
+          </div>
+
+      <?php
+        }
+      }
+      ?>
+    </div>
+  </div>
+</section>
+
+<div class="moreProducentsWrapper">
+<section class="moreProducents">
+  <h2>Więcej producentów</h2>
+    <div class="moreProducentsGrid">
+      <?php
+      $more_producents = get_field('more_producents');
+
+      if ($more_producents) {
+        foreach ($more_producents as $key => $row) {
+      ?>
+          <a href="<?php echo $row['url'] ?>"><?php echo $row['name'] ?></a>
+
+      <?php
+        }
+      }
+      ?>
+    </div>
+</section>
+</div>
+
+
 
 
 

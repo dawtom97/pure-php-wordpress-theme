@@ -157,10 +157,40 @@ const swiperPopular = () => {
   
 };
 
+const swiperProducents = () => {
+  var swiper = new Swiper(".sliderProducents", {
+    loop: false,
+    slidesPerView:1.5,
+    spaceBetween:20,
+    // autoplay: {
+    //   delay: 5000,
+    // },
+    // navigation: {
+    //   nextEl: ".swiper-button-next",
+    //   prevEl: ".swiper-button-prev",
+    // },
+    breakpoints: {
+      // when window width is >= 640px
+      640: {
+        width: 640,
+        slidesPerView: 3,
+      },
+      // when window width is >= 768px
+      768: {
+        width: 768,
+        slidesPerView: 2.5,
+      },
+    }
+  });
+  
+};
+
+
 
 window.addEventListener('load', ()=>{
   swiperHome();
   swiperCategories();
   swiperPosts();
   swiperPopular();
+  swiperProducents();
 })
