@@ -416,6 +416,27 @@ get_header();
   </div>
 </section>
 
+<div class="moreProducentsWrapper">
+<section class="moreProducents">
+  <h2>Więcej producentów</h2>
+    <div class="moreProducentsGrid">
+      <?php
+      $more_producents = get_field('more_producents');
+
+      if ($more_producents) {
+        foreach ($more_producents as $key => $row) {
+      ?>
+          <a href="<?php echo $row['url'] ?>"><?php echo $row['name'] ?></a>
+
+      <?php
+        }
+      }
+      ?>
+    </div>
+</section>
+</div>
+
+
 
 
 

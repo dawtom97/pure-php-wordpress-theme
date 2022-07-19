@@ -1458,6 +1458,61 @@ a {
      object-fit: contain;
 }
 
+.moreProducents {
+  width: 90%;
+  max-width: 1444px;
+  margin: 30px auto 0;
+  gap: 30px;
+  overflow-x: hidden;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.moreProducents > h2 {
+  font-size: 3rem;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.moreProducents > h2::before {
+  content: "";
+  position: absolute;
+  width: 35px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -7px;
+  height: 35px;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: #FFD200;
+  left: 0;
+}
+
+.moreProducents > p {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.moreProducents .moreProducentsGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[7];
+      grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.moreProducents .moreProducentsGrid a {
+  color: #171717;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin: 5px 0;
+}
+
 .size-auto,
 .size-full,
 .size-large,

@@ -1,0 +1,52 @@
+// .moreProducentsWrapper {
+//     background-color: #f0f0f0;
+// }
+.moreProducents {
+    width: 90%;
+    max-width: 1444px;
+    // overflow-x: hidden ;
+    margin: 30px auto 0;
+    gap: 30px;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 30px;
+
+    &>h2 {
+        font-size: 3rem;
+        position: relative;
+        margin-bottom: 20px;
+
+        &::before {
+            @include yellowCircle;
+            left: 0;
+        }
+    }
+
+    &>p {
+        font-size: 1.6rem;
+        font-weight: 300;
+        margin-bottom: 15px;
+    }
+
+
+
+    & .moreProducentsGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+
+        & a {
+            color: $colorDark;
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin:5px 0;
+        }
+
+
+        @media screen and(max-width:768px) {
+            
+        }
+    }
+}

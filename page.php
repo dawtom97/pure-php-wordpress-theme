@@ -11,17 +11,29 @@
  */
 get_header();
 ?>
-<div class="site_wrapper" id="Page">
+<div class="site_wrapper topSpace" id="Page">
     <main>
         <div class="site_content">
             <div class="container">
-                <div class="row">
+            <div class="row">
                     <?php
 
                     while (have_posts()) : the_post();
                         get_template_part('template-parts/content-page');
                     endwhile;
                     ?>
+
+                    <?php
+
+                    if (is_page('moje-konto') && !is_user_logged_in()) :
+                    ?>
+                        <h1 class="login_slogan">Join Us.</h1>
+                        <a class="back-to-home" href="/bhp-project"><i class="bi bi-house-door-fill"></i> Powrót</a>
+
+                    <?php
+                    endif;
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -29,4 +41,9 @@ get_header();
 </div>
 
 
-<?php get_footer(); ?>
+<?php if (is_page('moje-konto') && !is_user_logged_in()) :
+        get_footer('login');
+    else :
+        get_footer('footer');
+    endif;
+    ?>
